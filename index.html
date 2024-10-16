@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo de Raíces</title>
+</head>
+<body onload="iniciarCalculo()">
+
+    <h1>Cálculo de Raíces de una Ecuación Cuadrática</h1>
+    <p>Ahora te ayudaremos a calcular las raíces de la ecuación ax² + bx + c = 0.</p>
+    <p>Usando la formula general</p>
+    
+    <script>
+        // Función para calcular las raíces de una ecuación de segundo grado
+        function calcularRaices(a, b, c) 
+        {
+
+            // Calcular el discriminante
+            const discriminante = b * b - 4 * a * c;
+
+            // Comprobar si el discriminante es negativo
+            if (discriminante < 0) {
+                return ["No hay raíces reales"];
+            }
+
+            // Calcular las raíces usando la fórmula general
+            const raiz1 = (-b + Math.sqrt(discriminante)) / (2 * a);
+            const raiz2 = (-b - Math.sqrt(discriminante)) / (2 * a);
+
+            return [raiz1, raiz2];
+        }
+
+        // Función para iniciar el cálculo
+        function iniciarCalculo() 
+        {
+            alert("Comencemos con el ejercicio");
+            
+            // Solicitar coeficientes
+            const a = parseFloat(prompt("Ingresa el coeficiente a:"));
+            const b = parseFloat(prompt("Ingresa el coeficiente b:"));
+            const c = parseFloat(prompt("Ingresa el coeficiente c:"));
+
+            // Validar que 'a' no sea cero
+            if (a === 0) {
+                alert("El coeficiente 'a' no puede ser cero en una ecuación cuadrática.");
+                return;
+            }
+
+            // Calcular las raíces
+            const raices = calcularRaices(a, b, c);
+
+            // Mostrar el resultado
+            if (raices.length === 1) {
+                alert(raices[0]);
+            } else {
+                alert(`Raíz 1: ${raices[0]}\nRaíz 2: ${raices[1]}`);
+                console.log(`Raíz 1: ${raices[0]}`);
+                console.log(`Raíz 2: ${raices[1]}`);
+            }
+        }
+    </script>
+</body>
+</html>
